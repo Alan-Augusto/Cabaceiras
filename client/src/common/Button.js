@@ -4,11 +4,11 @@ import "./Button.css"
 
 function Button() {
   function exibirMensagem() {
-    alert("Mensagem exibida!");
+    alert("Filme adicionado!");
   }
 
   return (
-    <button className='button' onClick={exibirMensagem}>Clique aqui</button>
+    <button className='button' onClick={exibirMensagem}>Enviar Filme</button>
   );
 }
 
