@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import "./App.css"
-import Button from './common/Button';
+import Button from './common/Button/Button';
+import InputText from './common/InputText/InputText';
 
 
 
@@ -26,14 +27,14 @@ function App() {
         <h1>CABACEIRAS</h1>
       </div>
       
-      
+      {/* <InputText/> */}
       <div className= "form">
         <label><h2>Inserção de filme</h2></label>
         <label className="titles">Nome do filme</label>
         <input id="movieName"type="text" name = "movieName"/>
         
         <label className="titles">Ano de produção</label>
-        <input id="releaseYear" type="text" name = "releaseYear"/>
+        <input id="releaseYear" type="number" name = "releaseYear"/>
         
         <label className="titles">Disponível em</label>
         
