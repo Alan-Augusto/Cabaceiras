@@ -1,15 +1,15 @@
 import React from 'react';
-import "./Button.css"
+import './Button.css';
 
 
-function Button() {
-  function exibirMensagem() {
-    alert("Filme adicionado!");
+class Button extends React.Component {
+  render() {
+    const { text } = this.props;
+
+    return (
+      <button className="button">{text}</button>
+    );
   }
-
-  return (
-    <button className='button' onClick={exibirMensagem}>Enviar Filme</button>
-  );
 }
 
 export default Button;
