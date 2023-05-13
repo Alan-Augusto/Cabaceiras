@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect } from "react";
 import './Admin.css'
 import Button from '../../common/Button/Button'
+import InputData from '../../common/InputData/InputData'
 
 
 
@@ -18,12 +19,31 @@ return (
       
       <div className= "form">
         <label><h2>Inserção de filme</h2></label>
-        <label className="titles">Nome do filme</label>
-        <input id="movieName"type="text" name = "movieName"/>
+        <InputData description="Título" placeholder="Nome do filme" type="text" id="movieName" className="movieName" />
         
-        <label className="titles">Ano de produção</label>
-        <input id="releaseYear" type="number" name = "releaseYear"/>
+        <InputData description="Ano de Produção" placeholder="Digite um número" type="date" id="releaseYear" className="releaseYear"/>
         
+        <InputData description="Duração" placeholder="Duração do filme em minutos" type="number" id="runningTime" className="runningTime"/>
+        
+        <InputData description="Gênero" placeholder="O gênero principal" type="Text" id="genre" className="genre"/>
+        
+        <InputData description="Nacionalidade" placeholder="Onde o filme foi produzido" type="Text" id="nationality" className="nationality"/>
+
+        <InputData description="Idioma" placeholder="Digite o idioma nativo" type="Text" id="language" className="language"/>
+        
+        <InputData description="Classificação" placeholder="Digite um número" type="Number" id="rating" className="rating"/>
+        
+        <InputData description="Diretor" placeholder="Digite um nome" type="Text" id="director" className="director"/>
+        
+        <InputData description="Sinopse" placeholder="Digite aqui uma breve descrição da história do filme" type="Text" id="synopsis" className="synopsis"/>
+
+
+
+        {/*
+        Diretor
+
+        */}
+
         <label className="titles">Disponível em</label>
         
           <div className="multiSelect">

@@ -1,21 +1,21 @@
 .button {
-    width: 100px;
+    width: 130px;
     height: 30px;
     padding: 3px;
     margin-top:10px;
-    border-style: outset;
-    border-radius: 8px;
-    color: rgb(224, 224, 224);
+    border-style: solid;
+    border-radius: 2px;
+    border: none;
+    color: #313250;
     font-size: 15px;
-    font-weight: bold;
-    background-color: rgba(255, 255, 255, 0.137);
+    font-weight: regular;
+    background-color: #f8b179;
     
     
   }
   
   .button:hover {
-    background-color: rgba(165, 165, 165, 0.521);
-    
+    box-shadow: 0 0 10px #f8b0797a;
   }
   .button:active {
     transform: translateY(1px);
