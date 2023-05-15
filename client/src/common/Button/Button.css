@@ -1,0 +1,23 @@
+.button {
+    width: 130px;
+    height: 30px;
+    padding: 3px;
+    margin-top:10px;
+    border-style: solid;
+    border-radius: 2px;
+    border: none;
+    color: #313250;
+    font-size: 15px;
+    font-weight: regular;
+    background-color: #f8b179;
+    
+    
+  }
+  
+  .button:hover {
+    box-shadow: 0 0 10px #f8b0797a;
+  }
+  .button:active {
+    transform: translateY(1px);
+  }
+  

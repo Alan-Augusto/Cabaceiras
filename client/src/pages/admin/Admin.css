@@ -1,0 +1,62 @@
+html.full-height {
+    height: 100%;
+}
+  
+body {
+    margin: 0;
+    height: 100%;
+    text-align: center;
+    background-color: #313250;
+
+}
+  
+.header h1 {
+    color: #f8b179;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  border-color: black;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.titles {
+    font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(187, 187, 187);
+    margin-bottom: -7px;
+}
+
+.multiSelect {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  flex-direction:row;
+  border-color: gray;
+  border-radius: 10px;
+  border-style: solid;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+}
+
+.selectColumn{
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  flex-direction:column;
+  padding-left: 10px;
+  padding-right: 10px;
+
+}
+
+input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+}
+
+

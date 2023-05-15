@@ -1,7 +1,16 @@
+import React from 'react';
+import "./App.css"
+import Admin from'./pages/admin/Admin'
+
+
+
 function App() {
+
   return (
-    <div className="App">
+    <div>
+      <Admin/>
     </div>
+    
   );
 }
 
