@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import './Admin.css'
 import Button from '../../common/Button/Button'
 import InputData from '../../common/InputData/InputData'
+import Header from '../../common/Header/Header'
 
 
 
@@ -13,9 +14,7 @@ function Admin() {
 
 return (
     <div className="Admin">
-      <div className="header">
-        <h1>CABACEIRAS</h1>
-      </div>
+      <Header/>
       
       <div className= "form">
         <label><h2>Inserção de filme</h2></label>

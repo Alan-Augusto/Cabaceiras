@@ -1,0 +1,12 @@
+.conjunto{
+    display: flex;
+    justify-content:space-between;
+    flex-wrap: nowrap;
+    flex-direction:row;
+   }
+.menuBar{
+    display: flex;
+    justify-content:space-between;
+    flex-wrap: nowrap;
+    flex-direction:row;
+}

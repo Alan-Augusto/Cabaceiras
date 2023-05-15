@@ -1,0 +1,22 @@
+.botaoMenu {
+    width: 80px;
+    height: 30px;
+    padding: 3px;
+    border-style: solid;
+    border: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: regular;
+    background: transparent;
+     
+}
+  
+  .botaoMenu:hover {
+    box-shadow: 0 5px 6px -5px #f8b07993;
+    font-weight: bold;
+    border-bottom: 2px solid #f8b179;
+}
+  .botaoMenu:active {
+    transform: translateY(1px);
+}
+  
