@@ -15,15 +15,36 @@ function Admin() {
 
   
   const [movieName, setmovieName] = useState("");
+  const [movieProd, setmovieProd] = useState("");
+  const [movieDur, setmovieDur] = useState("");
+  const [movieGen, setmovieGen] = useState("");
+  const [movieNac, setmovieNac] = useState("");
+  const [movieIdio, setmovieIdio] = useState("");
+  const [movieClass, setmovieClass] = useState("");
+  const [movieDire, setmovieDire] = useState("");
+  const [movieSin, setmovieSin] = useState("");
   
   useEffect(() => {console.log(movieName)}, [movieName]);
 
   const handleClick = (e) => {
     console.log(movieName)
-    axios.post('url',{movieName})
+    axios.post('http://localhost:3000/admin/',{
+      nome: movieName,
+      ano: movieProd,
+      duracao: movieDur,
+      genero: movieGen,
+      nacionalidade: movieNac,
+      idioma: movieIdio,
+      classificacao: movieClass,
+      diretor: movieDire,
+      sinopse: movieSin,
+      
+    }).then(() => {
+      alert("sucesso");
+    });
     
 
-  }
+  };
 
 return (
     <div className="Admin">
@@ -31,23 +52,40 @@ return (
       
       <div className= "form">
         <label><h2>Inserção de filme</h2></label>
-        <InputData description="Título" placeholder="Nome do filme" type="text" id="movieName" className="movieName" onChange={setmovieName}/>
+        <InputData description="Título" placeholder="Nome do filme" type="text" id="movieName" className="movieName"
+          onChange={setmovieName}
+        />
+        <InputData description="Ano de Produção" placeholder="Digite um número" type="number" id="releaseYear" className="releaseYear"
+          onChange={setmovieProd}
+        />
         
-        <InputData description="Ano de Produção" placeholder="Digite um número" type="number" id="releaseYear" className="releaseYear"/>
+        <InputData description="Duração" placeholder="Duração do filme em minutos" type="number" id="runningTime" className="runningTime"
+          onChange={setmovieDur}
+        />
         
-        <InputData description="Duração" placeholder="Duração do filme em minutos" type="number" id="runningTime" className="runningTime"/>
+        <InputData description="Gênero" placeholder="O gênero principal" type="Text" id="genre" className="genre"
+          onChange={setmovieGen}
+        />
         
-        <InputData description="Gênero" placeholder="O gênero principal" type="Text" id="genre" className="genre"/>
-        
-        <InputData description="Nacionalidade" placeholder="Onde o filme foi produzido" type="Text" id="nationality" className="nationality"/>
+        <InputData description="Nacionalidade" placeholder="Onde o filme foi produzido" type="Text" id="nationality" className="nationality"
+          onChange={setmovieNac}
+        />
 
-        <InputData description="Idioma" placeholder="Digite o idioma nativo" type="Text" id="language" className="language"/>
+        <InputData description="Idioma" placeholder="Digite o idioma nativo" type="Text" id="language" className="language"
+          onChange={setmovieIdio}
+        />
         
-        <InputData description="Classificação" placeholder="Digite um número" type="Number" id="rating" className="rating"/>
+        <InputData description="Classificação" placeholder="Digite um número" type="Number" id="rating" className="rating"
+          onChange={setmovieClass}
+        />
         
-        <InputData description="Diretor" placeholder="Digite um nome" type="Text" id="director" className="director"/>
+        <InputData description="Diretor" placeholder="Digite um nome" type="Text" id="director" className="director"
+          onChange={setmovieDire}
+        />
         
-        <InputData description="Sinopse" placeholder="Digite aqui uma breve descrição da história do filme" type="Text" id="synopsis" className="synopsis"/>
+        <InputData description="Sinopse" placeholder="Digite aqui uma breve descrição da história do filme" type="Text" id="synopsis" className="synopsis"
+          onChange={setmovieSin}
+        />
 
 
         <label className="titles">Disponível em</label>
