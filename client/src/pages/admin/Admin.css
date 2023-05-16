@@ -9,19 +9,15 @@ body {
     background-color: #313250;
 
 }
-  
-.header h1 {
-    color: #f8b179;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
 .form {
   display: flex;
   flex-direction: column;
-  border-color: black;
-  border-radius: 15px;
   align-items: center;
   justify-content: center;
+}
+
+.form h2{
+  color: rgb(187, 187, 187);
 }
 
 .titles {
@@ -31,32 +27,37 @@ body {
 }
 
 .multiSelect {
+  width: 500px;
   display: flex;
-  align-items: flex-start;
-  flex-wrap: nowrap;
   flex-direction:row;
-  border-color: gray;
   border-radius: 10px;
   border-style: solid;
-  padding-left: 20px;
-  padding-right: 20px;
   margin-top: 10px;
 }
 
 .selectColumn{
+  flex-grow: 1;
+  
   display: flex;
-  align-items: flex-start;
   flex-wrap: nowrap;
   flex-direction:column;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-inline: auto;
+}
 
+
+.checkboxItem{
+  color: rgb(187, 187, 187);
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction:row;
 }
 
 input[type=checkbox] {
   width: 20px;
   height: 20px;
   padding: 10px;
+  margin: 10px;
 }
 
 

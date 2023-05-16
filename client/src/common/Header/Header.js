@@ -9,13 +9,13 @@ class Header extends React.Component {
       return (
         <div className='conjunto'>
           <div className='logo'>
-            Cabaceiras
-            {/* Inserir Logo */}
+            <h3>Cabaceiras</h3>
           </div>
 
           <div className='menuBar'>
             <HeaderItem name="Início"/>
-            <HeaderItem name="Profile"/>
+            <HeaderItem name="Hall da Fama"/>
+            <HeaderItem name="Perfil"/>
           </div>
         </div>
       );

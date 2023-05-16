@@ -63,11 +63,6 @@ return (
               <input type="checkbox" id="PrimeVideo"/>
               <label>PrimeVideo</label>
               </div>
-
-              <div className="checkboxItem">
-              <input type="checkbox" id="HBO Max"/>
-              <label>HBO Max</label>
-              </div>
           </div>
           
           <div className="selectColumn">
@@ -79,6 +74,14 @@ return (
             <div className="checkboxItem">
             <input type="checkbox" id="Disney+"/>
             <label>Disney+</label>
+            </div>
+          </div>
+
+          <div className="selectColumn">
+
+            <div className="checkboxItem">
+            <input type="checkbox" id="HBO Max"/>
+            <label>HBO Max</label>
             </div>
 
             <div className="checkboxItem">

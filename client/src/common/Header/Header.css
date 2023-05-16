@@ -9,4 +9,15 @@
     justify-content:space-between;
     flex-wrap: nowrap;
     flex-direction:row;
+    margin-top: 10px;
+    margin-right: 50px;
+}
+.logo{
+    margin-top: 10px;
+    margin-left: 40px;
+    display: flex;
+    height: 50px;
+    color:  #f8b179;
+    align-items: center;
+    justify-content: center;
 }
