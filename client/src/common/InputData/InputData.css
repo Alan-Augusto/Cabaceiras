@@ -50,3 +50,7 @@
 .input:focus{
   outline: none;
 }
+
+.img{
+  height: 30px;
+}
