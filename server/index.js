@@ -26,7 +26,7 @@ app.post("/admin/", (req, res) => {
     const diretor = req.body.diretor;
     const sinopse = req.body.sinopse;
 
-    const sqlInsert = "INSERT TO filme (nome, ano, duracao, genero, nacionalidade, idioma, classificacao, diretor, sinopse) VALUES (?,?,?,?,?,?,?,?,?)"
+    const sqlInsert = "INSERT INTO filme (nome, ano, duracao, genero, nacionalidade, idioma, classificacao, diretor, sinopse) VALUES (?,?,?,?,?,?,?,?,?)"
     db.query(sqlInsert, [nome, ano, duracao, genero,
          nacionalidade, idioma, classificacao, diretor, sinopse], (err, result) =>{
         console.log(result);
