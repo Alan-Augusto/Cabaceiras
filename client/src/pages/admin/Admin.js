@@ -23,6 +23,8 @@ function Admin() {
   const [movieClass, setmovieClass] = useState("");
   const [movieDire, setmovieDire] = useState("");
   const [movieSin, setmovieSin] = useState("");
+  const [movieBanner, setmovieBanner] = useState("");
+  
   
   useEffect(() => {console.log(movieName)}, [movieName]);
 
@@ -39,6 +41,7 @@ function Admin() {
       classificacao: movieClass,
       diretor: movieDire,
       sinopse: movieSin,
+      banner: movieBanner,
       
     }).then(() => {
       alert("sucesso");
@@ -88,6 +91,9 @@ return (
           onChange={setmovieSin}
         />
 
+        <InputData description="Banner" placeholder="Insira a URL do banner do filme" type="url" id="bannerURL" className="bannerURL"
+          onChange={setmovieBanner}
+        />
 
         <label className="titles">Disponível em</label>
         
