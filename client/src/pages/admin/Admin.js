@@ -5,7 +5,7 @@ import Button from '../../common/Button/Button'
 import InputData from '../../common/InputData/InputData'
 import Header from '../../common/Header/Header'
 import axios from 'axios'
-
+import http from './export'
 
 
 function Admin() {
@@ -27,8 +27,9 @@ function Admin() {
   useEffect(() => {console.log(movieName)}, [movieName]);
 
   const handleClick = (e) => {
+    
     console.log(movieName)
-    axios.post('http://localhost:3000/admin/',{
+    http.post('/admin/',{
       nome: movieName,
       ano: movieProd,
       duracao: movieDur,
