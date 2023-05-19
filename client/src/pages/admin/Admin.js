@@ -27,7 +27,11 @@ function Admin() {
   
   
   useEffect(() => {console.log(movieName)}, [movieName]);
-
+  useEffect(() => {
+    http.get('/get/').then((response) => {
+      console.log(response);
+    });
+  });
   const handleClick = (e) => {
     
     console.log(movieName)
@@ -41,7 +45,7 @@ function Admin() {
       classificacao: movieClass,
       diretor: movieDire,
       sinopse: movieSin,
-      banner: movieBanner,
+      fotoURL: movieBanner,
       
     }).then(() => {
       alert("sucesso");

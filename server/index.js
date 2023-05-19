@@ -14,6 +14,13 @@ app.use(cors());
 app.use(express.json())
 app.use(bodyParser.urlencoded({extended:true}));
 
+app.get('/get/', (req, res) => {
+    const sqlSelect = "SELECT * FROM filme";
+    db.query(sqlSelect, (err, result) =>{
+        res.send(result);
+    });
+});
+
 app.post("/admin/", (req, res) => {
     
     const nome = req.body.nome;
@@ -25,9 +32,10 @@ app.post("/admin/", (req, res) => {
     const classificacao = req.body.classificacao;
     const diretor = req.body.diretor;
     const sinopse = req.body.sinopse;
+    const fotoURL = req.body.fotoURL;
 
-    const sqlInsert = "INSERT INTO filme (nome, ano, duracao, genero, nacionalidade, idioma, classificacao, diretor, sinopse) VALUES (?,?,?,?,?,?,?,?,?)"
-    db.query(sqlInsert, [nome, ano, duracao, genero,
+    const sqlInsert = "INSERT INTO filme (nome, fotoURL , ano, duracao, genero, nacionalidade, idioma, classificacao, diretor, sinopse) VALUES (?,?,?,?,?,?,?,?,?,?)"
+    db.query(sqlInsert, [nome, fotoURL, ano, duracao, genero,
          nacionalidade, idioma, classificacao, diretor, sinopse], (err, result) =>{
         console.log(result);
     });
