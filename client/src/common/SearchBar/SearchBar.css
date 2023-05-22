@@ -1,0 +1,11 @@
+.searchContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.searchBar{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: nowrap;
+
+}
