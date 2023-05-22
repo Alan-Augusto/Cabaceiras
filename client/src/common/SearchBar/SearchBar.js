@@ -1,13 +1,18 @@
 import './SearchBar.css'
 import InputData from '../InputData/InputData'
+import Button from '../Button/Button'
 
 function SearchBar() {
 
 return (
-    <div className="searchBar">
-        <InputData placeholder="Procure por um filme" type="text" id="movieName" className="movieName"
-          onChange={()=>console.log("AAAA") } iconUrl='https://img.icons8.com/?size=512&id=XU3XKgdpT0qG&format=png'
-        />
+    <div className='searchContainer'>
+      <div className="searchBar">
+          <InputData placeholder="Procure por um filme" type="text" id="movieName" className="movieName"
+            onChange={()=>console.log("AAAA") }
+          />
+          
+          <Button text="Buscar"/>
+      </div>
     </div>
     
     

@@ -1,6 +1,11 @@
+.searchContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .searchBar{
-    background-color: black;
-    border-style: solid;
-    border-color: blue;
+    display: flex;
+    flex-direction:row;
+    flex-wrap: nowrap;
 
 }

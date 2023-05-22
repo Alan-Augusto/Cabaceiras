@@ -16,8 +16,6 @@ class InputData extends React.Component {
                 name = {name} 
                 onChange={(e)=>onChange(e.target.value)}>
           </input>
-          {iconUrl && <img src={iconUrl} alt="Icon" />}
-
         </div>
       );
     }
