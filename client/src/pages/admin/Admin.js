@@ -5,7 +5,7 @@ import Button from '../../common/Button/Button'
 import InputData from '../../common/InputData/InputData'
 import Header from '../../common/Header/Header'
 import axios from 'axios'
-import http from './export'
+import http from '../export'
 
 
 function Admin() {
@@ -27,11 +27,8 @@ function Admin() {
   
   
   useEffect(() => {console.log(movieName)}, [movieName]);
-  useEffect(() => {
-    http.get('/get/').then((response) => {
-      console.log(response);
-    });
-  });
+
+  
   const handleClick = (e) => {
     
     console.log(movieName)

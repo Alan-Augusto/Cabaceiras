@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json())
 app.use(bodyParser.urlencoded({extended:true}));
 
-app.get('/get/', (req, res) => {
+app.get('/home/', (req, res) => {
     const sqlSelect = "SELECT * FROM filme";
     db.query(sqlSelect, (err, result) =>{
         res.send(result);
