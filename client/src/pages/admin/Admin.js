@@ -4,6 +4,7 @@ import './Admin.css'
 import Button from '../../common/Button/Button'
 import InputData from '../../common/InputData/InputData'
 import Header from '../../common/Header/Header'
+import Footer from '../../common/Footer/Footer'
 import axios from 'axios'
 import http from '../export'
 
@@ -138,7 +139,9 @@ return (
                 
         </div>
         <Button text="Enviar Filme" onClick={handleClick}></Button>
-        {/* <Button variant='primary' type='submit'>Tezzz</Button> */}
+        
+        <Footer/>
+
       </div>
     </div>
     
