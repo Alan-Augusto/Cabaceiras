@@ -26,9 +26,11 @@ return (
         <SearchBar/>
     
       {movieReviewList.map((filme) =>{
-        return<h3>Movie Name : {filme.nome} | {filme.fotoURL && <img src={filme.fotoURL} alt="Imagem do Filme" />}
+        return<h3> 
+          {filme.nome} 
+          {filme.fotoURL && <img src={filme.fotoURL} alt="Imagem do Filme" />}
         </h3>
-       
+
 
       })}
     </div>

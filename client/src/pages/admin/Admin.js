@@ -24,10 +24,15 @@ function Admin() {
   const [movieDire, setmovieDire] = useState("");
   const [movieSin, setmovieSin] = useState("");
   const [movieBanner, setmovieBanner] = useState("");
-  
+  const [globoPlay, setGloboPlay] = useState(false);
+  const [netflix, setNetflix] = useState(false);
+  const [primeVideo, setPrime] = useState(false);
+  const [star, setStar] = useState(false);
+  const [disney, setDisney] = useState(false);
+  const [hboMax, setHBOMax] = useState(false);
   
   useEffect(() => {console.log(movieName)}, [movieName]);
-
+ 
   
   const handleClick = (e) => {
     
@@ -43,20 +48,23 @@ function Admin() {
       diretor: movieDire,
       sinopse: movieSin,
       fotoURL: movieBanner,
-      
-    }).then(() => {
-      alert("sucesso");
+      netflixBD: netflix,
+      globoPlayBD: globoPlay,
+      primeVideoBD: primeVideo,
+      starBD: star,
+      disneyBD: disney,
+      hboMaxBD: hboMax,
     });
-    
-
   };
+
+  
 
 return (
     <div className="Admin">
       <Header/>
       
       <div className= "form">
-        <label><h2>Inserção de filme</h2></label>
+        <label id="nomeFilme"><h2>Inserção de filme</h2></label>
         <InputData description="Título" placeholder="Nome do filme" type="text" id="movieName" className="movieName"
           onChange={setmovieName}
         />
@@ -101,24 +109,24 @@ return (
           <div className="multiSelect">
             <div className="selectColumn">
               <div className="checkboxItem">
-              <input type="checkbox" id="GloboPlay"/>
+              <input type="checkbox" id="GloboPlay" onChange={() => setGloboPlay(!globoPlay)}/>
               <label>GloboPlay</label>
               </div> 
 
               <div className="checkboxItem">
-              <input type="checkbox" id="PrimeVideo"/>
+              <input type="checkbox" id="PrimeVideo" onChange={() => setPrime(!primeVideo)}/>
               <label>PrimeVideo</label>
               </div>
           </div>
           
           <div className="selectColumn">
             <div className="checkboxItem">
-            <input type="checkbox" id="Star+"/>
+            <input type="checkbox" id="Star+" onChange={() => setStar(!star)}/>
             <label>Star+</label>
             </div>
             
             <div className="checkboxItem">
-            <input type="checkbox" id="Disney+"/>
+            <input type="checkbox" id="Disney+" onChange={() => setDisney(!disney)}/>
             <label>Disney+</label>
             </div>
           </div>
@@ -126,18 +134,21 @@ return (
           <div className="selectColumn">
 
             <div className="checkboxItem">
-            <input type="checkbox" id="HBO Max"/>
+            <input type="checkbox" id="HBO Max" onChange={() => setHBOMax(!hboMax)}/>
             <label>HBO Max</label>
             </div>
 
             <div className="checkboxItem">
-            <input type="checkbox" id="Apple TV"/>
-            <label>Apple TV</label>
+            <input type="checkbox" id="Netflix" onChange={() => setNetflix(!netflix)}/>
+            <label>Netflix</label>
             </div>
           </div>
                 
         </div>
         <Button text="Enviar Filme" onClick={handleClick}></Button>
+         
+  
+        
         {/* <Button variant='primary' type='submit'>Tezzz</Button> */}
       </div>
     </div>
