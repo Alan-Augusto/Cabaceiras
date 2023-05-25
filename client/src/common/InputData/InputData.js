@@ -4,7 +4,7 @@ import "./InputData.css"
 
 class InputData extends React.Component {
     render() {
-      const { placeholder, description,type, id, name, onChange,iconUrl} = this.props;
+      const { placeholder, description,type, id, name, onChange} = this.props;
   
       return (
         <div className='container'>

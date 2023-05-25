@@ -1,0 +1,10 @@
+.footer{
+    height: 50px;
+    width: 80%;
+}
+
+hr {
+    color:#b3b3b3;
+    border-top: 2px solid;
+    margin-top: 0px;
+}
