@@ -37,7 +37,7 @@ function Critica()
           {criticas.usuario} 
           {criticas.texto}
           {criticas.nota}
-          {criticas.fotoUsuario && <img src={criticas.fotoUsuario} alt="Foto Usuário" />}
+          {criticas.fotoUsuario && <img src={criticas.fotoUsuario} alt="Foto Usuário"/>}
         </h3>
       })}
 

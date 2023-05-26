@@ -92,37 +92,37 @@ app.post("/admin/", (req, res) => {
                 if (netflix) {
                     db.query("INSERT INTO conexoes (filme, plataforma) values (?,?)", [id, 1], (err) => {
                         if (err) return res.status(500).json(err);
-                        return res.status(200).json("Conexão criada");
+                        
                     })
                 }
                 if (globoPlay) {
                     db.query("INSERT INTO conexoes (filme, plataforma) values (?,?)", [id, 2], (err) => {
                         if (err) return res.status(500).json(err);
-                        return res.status(200).json("Conexão criada");
+                        
                     })
                 }
                 if (primeVideo) {
                     db.query("INSERT INTO conexoes (filme, plataforma) values (?,?)", [id, 3], (err) => {
                         if (err) return res.status(500).json(err);
-                        return res.status(200).json("Conexão criada");
+                       
                     })
                 }
                 if (star) {
                     db.query("INSERT INTO conexoes (filme, plataforma) values (?,?)", [id, 4], (err) => {
                         if (err) return res.status(500).json(err);
-                        return res.status(200).json("Conexão criada");
+                        
                     })
                 }
                 if (disney) {
                     db.query("INSERT INTO conexoes (filme, plataforma) values (?,?)", [id, 5], (err) => {
                         if (err) return res.status(500).json(err);
-                        return res.status(200).json("Conexão criada");
+                        
                     })
                 }
                 if (hboMax) {
                     db.query("INSERT INTO conexoes (filme, plataforma) values (?,?)", [id, 6], (err) => {
                         if (err) return res.status(500).json(err);
-                        return res.status(200).json("Conexão criada");
+                       
                     })
                 }
 
@@ -132,6 +132,7 @@ app.post("/admin/", (req, res) => {
             }})();
         } 
     })();
+    return res.status(200).json("Conexão criada");
 
 
 });
