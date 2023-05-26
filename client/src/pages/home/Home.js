@@ -27,7 +27,7 @@ function Home() {
   const [nota, setnota] = useState("");
   const [fotoUsuario, setfotoUsuario] = useState("");
   const [filme, setfilme] = useState("");
-
+  const [pesquisa, setPesquisa] = useState('')
   const handleClick = (e) => {
     http.post('/home/',{
       usuario: usuario,
@@ -42,13 +42,20 @@ function Home() {
 return (
     <div className="Home">
         <Header/>
-        <SearchBar/>
+        <input type = "text" placeholder="Buscar um filme" onChange={event => {setPesquisa(event.target.value)}}/>
     
-      {movieReviewList.map((filme) =>{
-        return<h3> 
+      {movieReviewList.filter((val) =>{
+         if(pesquisa == ""){
+          return val
+         } else if (val.nome.toLowerCase().includes(pesquisa.toLowerCase()))
+         {
+            return val
+         }
+      }).map((filme) =>{
+        return<div> 
           {filme.nome} 
           {filme.fotoURL && <img src={filme.fotoURL} alt="Imagem do Filme" />}
-        </h3>
+        </div>
 
 
       })}
