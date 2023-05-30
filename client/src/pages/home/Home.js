@@ -44,21 +44,30 @@ return (
     <div>
       <div className='header'>
         <Header/>
-        <SearchBar/>
+        <input type = "text" placeholder="Buscar um filme" 
+        onChange={event => {setPesquisa(event.target.value)}}/>
       </div>
       <div className='conteudo'>
-
-        {movieReviewList.map((filme) =>{ return(
-          <div> 
-              <CardFilm
-                title={filme.nome}
-                informacoes = {filme.sinopse}
-                banner = {filme.fotoURL}
-                nota = {3}
-              />
-          </div>
-          )
-        })}
+      {movieReviewList.filter((val) =>{
+        if (pesquisa == ""){
+          return val;
+        } else if (val.nome.toLowerCase().includes(pesquisa.toLowerCase())){
+          return val
+        }
+      }).map((val) =>{
+        return (
+            <div> 
+                <CardFilm
+                  title={val.nome}
+                  informacoes = {val.sinopse}
+                  banner = {val.fotoURL}
+                  nota = {val.nota}
+                />
+            </div>
+        )  
+      })
+      }
+        
 
         <Button text="Enviar Crítica" onClick={handleClick}/>
         {/* <Button variant='primary' type='submit'>Tezzz</Button> */}

@@ -4,20 +4,19 @@ const cors = require('cors')
 const app = express();
 const mysql = require("mysql");
 const util = require( "util");
-
-// const db = mysql.createPool({
-//     host: "localhost",
-//     user: "laura",
-//     password: "Agoraufmg1",
-//     database: "filmes",
-// });
-
 const db = mysql.createPool({
     host: "localhost",
-    user: "root",
-    password: "Aln_139157!",
-    database: "filmes",
+    user: "laura",
+  password: "Agoraufmg1",
+  database: "filmes",
 });
+
+//const db = mysql.createPool({
+//    host: "localhost",
+ //   user: "root",
+//    password: "Aln_139157!",
+//    database: "filmes",
+//});
 
 app.use(cors());
 app.use(express.json())
