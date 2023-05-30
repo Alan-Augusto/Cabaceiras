@@ -1,22 +1,26 @@
-import './SearchBar.css'
-import InputData from '../InputData/InputData'
-import Button from '../Button/Button'
+import React from 'react';
+import "./SearchBar.css"
+import 'primeicons/primeicons.css';
+        
 
-function SearchBar() {
 
-return (
-    <div className='searchContainer'>
-      <div className="searchBar">
-          <InputData placeholder="Procure por um filme" type="text" id="movieName" className="movieName"
-            onChange={()=>console.log("AAAA") }
-          />
-          
-          <Button text="Buscar"/>
-      </div>
-    </div>
-    
-    
-  );
-}
-
-export default SearchBar;
+class SearchBar extends React.Component {
+    render() {
+      const { placeholder, description,type, id, name, onChange, icon} = this.props;
+  
+      return (
+        <div className='barra'>
+          <input type={type} 
+                placeholder={placeholder} 
+                className='input' 
+                id={id} 
+                name = {name} 
+                onChange={(e)=>onChange(e.target.value)}>
+          </input>
+          <i className="pi pi-search" style={{ fontSize: '1.5em', color: 'rgb(187, 187, 187)', margin:'8px'}}></i>
+        </div>
+      );
+    }
+  }
+  
+  export default SearchBar;
