@@ -30,13 +30,42 @@ app.post('/home/', (req, res) => {
     const nota = req.body.nota;
     const fotoUsuario = req.body.fotoUsuario;
     const filme = req.body.filme;
-    
-    const sqlInsertCriticas = "INSERT INTO criticas (usuario, texto, nota, fotoUsuario, filme) VALUES (?,?,?,?,?);";
-    db.query(sqlInsertCriticas, {usuario, texto, nota, fotoUsuario, filme} ,(err, result) =>{
-        res.send(result);
-    });
-});
 
+    const query = util.promisify(db.query).bind(db);
+
+    (async () => {
+        try {
+            await query (
+                "INSERT INTO criticas (usuario, texto, nota, fotoUsuario, filme) VALUES('" +
+                    usuario + "','" +
+                    texto + "'," +
+                    nota + ",'" +
+                    fotoUsuario  + "'," +
+                    filme    + ")" 
+                
+            )
+            
+        }finally {
+            (async () => {
+                try{
+                    const result_criticas = await query ( "SELECT COUNT(*) AS total_criticas FROM criticas WHERE filme = " + filme +" ");
+                    cont_criticas = result_criticas[0].cont_criticas;
+                
+        }finally {
+            (async () => {
+                try{
+                    const result_notas = await query ( "SELECT SUM(nota) as total FROM criticas WHERE filme  = " + filme +" ");
+                    soma_nota = result_notas[0].soma_nota;
+                
+        } finally{
+            const notasReal = (result_notas / result_criticas)
+            const estrelas_total = await query ( "UPDATE filme SET estrelas = " + notasReal + " WHERE id   = " + filme +" ");              
+                        }})();
+            } 
+        })();
+
+}});
+})
 app.get('/criticas/', (req, res) => {
     const sqlGetCriticas = "SELECT * FROM criticas WHERE filme = ?";
     db.query(sqlGetCriticas, (err, result) =>{
@@ -51,6 +80,8 @@ app.get('/home/', (req, res) => {
         res.send(result);
     });
 });
+
+
 
 app.post("/admin/", (req, res) => {
     var id; 

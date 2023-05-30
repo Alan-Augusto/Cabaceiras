@@ -14,10 +14,7 @@ function Critica()
 
     const params = useParams();
     const id = params.id;
-    //useEffect(() => {
-        //chamar HTTP.post
-      //}, []);
-     
+   
     
     const[criticasList, setCriticasList] = useState([])
 

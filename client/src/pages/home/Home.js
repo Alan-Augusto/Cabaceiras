@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+ import React, { useState } from 'react';
 import { useEffect } from "react";
 import './Home.css'
 import Header from '../../common/Header/Header';
@@ -21,6 +21,7 @@ function Home() {
       setmovieList(response.data);
     });
   },[]);
+
 
 
   const [usuario, setusuario] = useState("");
@@ -51,26 +52,26 @@ return (
 
       {/* PARTE DO CONTEÚDO */}
       <div className='conteudo'>
-        <SearchBar type= "text" placeholder="Buscar filme..." onChange={setPesquisa} />
-        {movieReviewList.filter((val) =>{
-          if (pesquisa == ""){
-            return val;
-          } else if (val.nome.toLowerCase().includes(pesquisa.toLowerCase())){
-            return val
-          }
-        }).map((val) =>{
-          return (
-              <div> 
-                  <CardFilm
-                    title={val.nome}
-                    informacoes = {val.sinopse}
-                    banner = {val.fotoURL}
-                    nota = {4}
-                  />
-              </div>
-          )  
-        })
+      <SearchBar type= "text" placeholder="Buscar filme..." onChange={setPesquisa} />
+      {movieReviewList.filter((val) =>{
+        if (pesquisa == ""){
+          return val;
+        } else if (val.nome.toLowerCase().includes(pesquisa.toLowerCase())){
+          return val
         }
+      }).map((val) =>{
+        return (
+            <div> 
+                <CardFilm
+                  title={val.nome}
+                  informacoes = {val.sinopse}
+                  banner = {val.fotoURL}
+                  nota = {val.estrelas}
+                />
+            </div>
+        )  
+      })
+      }
         
 
         <Button text="Enviar Crítica" onClick={handleClick}/>
