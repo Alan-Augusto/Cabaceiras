@@ -23,6 +23,7 @@ function Home() {
   },[]);
 
 
+
   const [usuario, setusuario] = useState("");
   const [texto, settexto] = useState("");
   const [nota, setnota] = useState("");
@@ -61,7 +62,7 @@ return (
                   title={val.nome}
                   informacoes = {val.sinopse}
                   banner = {val.fotoURL}
-                  nota = {val.nota}
+                  nota = {val.estrelas}
                 />
             </div>
         )  

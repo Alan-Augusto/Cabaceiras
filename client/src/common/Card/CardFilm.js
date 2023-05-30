@@ -23,7 +23,7 @@ class CardFilm extends React.Component {
 
 
             <div className='others'>
-              <h3>{others}</h3>
+              <img src={others} alt="Plataformas" />
             </div>
         </div>
       );
