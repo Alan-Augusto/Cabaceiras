@@ -1,0 +1,54 @@
+.CardFilm{
+    display: flex;
+    flex-direction: row;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: #b3b3b387;
+    border-width: 1px;
+    width: 1000px;
+    margin: 8px;
+    transition: transform 0.3s;
+}
+.CardFilm:hover{
+    transform: scale(1.04);
+    box-shadow: 0 0 5px #f8b179;
+}
+
+.banner{
+    display: flex;
+    flex-direction: column;
+    margin: 8px;
+}
+.p-rating{
+    display: flex;
+    justify-content:space-between;
+    justify-content: center;
+    color: #f8b179;
+    margin-top: 5px;
+}
+.p-rating-item{
+    height: 25px;
+    width: 25px;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: aliceblue;
+    font-weight: 100;
+    font-size: 15px;
+    margin: 8px;
+}
+.info h3 {
+    font-size: 25px;
+    font-weight: 200;
+    color: aliceblue;
+}
+
+
+img {
+    width: 250px;
+    border-radius: 4px;
+    box-shadow: 0 0 8px #f8b0797a;
+}

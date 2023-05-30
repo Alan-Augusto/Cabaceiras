@@ -5,6 +5,8 @@ import Header from '../../common/Header/Header';
 import SearchBar from '../../common/SearchBar/SearchBar';
 import http from '../export'
 import Button from '../../common/Button/Button'
+import CardFilm from '../../common/Card/CardFilm';
+import Footer from '../../common/Footer/Footer';
 
 
 function Home() {
@@ -39,21 +41,33 @@ function Home() {
   };
 
 return (
-    <div className="Home">
+    <div>
+      <div className='header'>
         <Header/>
         <SearchBar/>
-    
-      {movieReviewList.map((filme) =>{
-        return(<div> 
-          {filme.nome} 
-          {filme.fotoURL && <img src={filme.fotoURL} alt="Imagem do Filme" />}
-        </div>)
+      </div>
+      <div className='conteudo'>
 
+        {movieReviewList.map((filme) =>{ return(
+          <div> 
+              <CardFilm
+                title={filme.nome}
+                informacoes = {filme.sinopse}
+                banner = {filme.fotoURL}
+                nota = {3}
+              />
+          </div>
+          )
+        })}
 
-      })}
-
-      <Button text="Enviar Crítica" onClick={handleClick}></Button>
-      {/* <Button variant='primary' type='submit'>Tezzz</Button> */}
+        <Button text="Enviar Crítica" onClick={handleClick}/>
+        {/* <Button variant='primary' type='submit'>Tezzz</Button> */}
+      </div>
+      
+      <div className='rodape'>
+        <Footer/>
+      </div>
+        
     </div>
   );
 }
