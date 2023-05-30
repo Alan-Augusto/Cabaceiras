@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Carousel } from 'primereact/carousel';
 import { useEffect } from "react";
 import './Home.css'
 import Header from '../../common/Header/Header';
@@ -16,22 +15,22 @@ function Home() {
 
   useEffect(() => {
     http.get('/home/').then((response) => {
-      setmovieList(response.data)
+      setmovieList(response.data);
     });
   },[]);
 
+  console.log(useState([]))
+  
 return (
     <div className="Home">
         <Header/>
         <SearchBar/>
-    
+
       {movieReviewList.map((filme) =>{
-        return<h3> 
+        return(<h3> 
           {filme.nome} 
           {filme.fotoURL && <img src={filme.fotoURL} alt="Imagem do Filme" />}
-        </h3>
-
-
+        </h3>)
       })}
     </div>
   );

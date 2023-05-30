@@ -4,12 +4,21 @@ const cors = require('cors')
 const app = express();
 const mysql = require("mysql");
 const util = require( "util");
+
+// const db = mysql.createPool({
+//     host: "localhost",
+//     user: "laura",
+//     password: "Agoraufmg1",
+//     database: "filmes",
+// });
+
 const db = mysql.createPool({
     host: "localhost",
-    user: "laura",
-    password: "Agoraufmg1",
+    user: "root",
+    password: "Aln_139157!",
     database: "filmes",
 });
+
 app.use(cors());
 app.use(express.json())
 app.use(bodyParser.urlencoded({extended:true}));
@@ -17,6 +26,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.get('/home/', (req, res) => {
     const sqlSelect = "SELECT * FROM filme";
     db.query(sqlSelect, (err, result) =>{
+        if (err) return res.status(500).json(err);
         res.send(result);
     });
 });
