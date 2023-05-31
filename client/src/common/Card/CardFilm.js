@@ -5,7 +5,10 @@ import { Rating } from 'primereact/rating';
 
 class CardFilm extends React.Component {
     render() {
-      const { title, nota, informacoes, banner, others, onClick} = this.props;
+      const { title, nota, informacoes, banner, onClick} = this.props;
+      let {plataforma, icones} = this.props;
+      if (icones)icones = icones.split(",");
+      if(plataforma)plataforma = plataforma.split(",").map(Number);
       
       return (
         <div className='CardFilm' onClick={(e)=>onClick()}>
@@ -23,7 +26,10 @@ class CardFilm extends React.Component {
 
 
             <div className='others'>
-              {others}
+            {plataforma?.map((icone,i) => (
+              <div> <img src={icones[i]} alt="Imagem da Plataforma" /></div>
+            ))}
+                
             </div>
         </div>
       );

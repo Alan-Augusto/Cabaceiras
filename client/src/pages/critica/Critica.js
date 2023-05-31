@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useEffect } from "react";
 import Header from '../../common/Header/Header'
 import http from '../export'
+import CardFilm from "../../common/Card/CardFilm";
 
 
 function Critica()
@@ -11,31 +12,38 @@ function Critica()
     document.documentElement.classList.add("full-height");
   }, []);
 
-
-    const params = useParams();
-    const id = params.id;
+  const params = useParams();
+  const id = params.id;
    
-    
     const[criticasList, setCriticasList] = useState([])
-
+    const[filme, setFilme] = useState("")
       useEffect(() => {
-        http.get('/criticas/').then((response) => {
+        http.post('/criticas/', {id:id}).then((response) => {
           setCriticasList(response.data)
+          console.log(response.data)
         });
       },[]);
+
+
+      http.post('/filme/', {id:id}).then((response) => {
+        setFilme(response.data[0])
+      });
+
+
     return (
-        
-      <div className="Página de Críticas {id}">
+        // entender como funciona o ID
+      <div className="Críticas">
       <Header/>
-      
+      <h1>Avaliações {filme.nome}</h1>
   
       {criticasList.map((criticas) =>{
-        return<h3> 
-          {criticas.usuario} 
-          {criticas.texto}
-          {criticas.nota}
-          {criticas.fotoUsuario && <img src={criticas.fotoUsuario} alt="Foto Usuário"/>}
-        </h3>
+        return(
+        <CardFilm
+                  title={criticas.usuario}
+                  informacoes = {criticas.texto}
+                  banner = {criticas.fotoUsuario}
+                  nota = {criticas.nota}
+        />)
       })}
 
       

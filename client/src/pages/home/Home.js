@@ -20,14 +20,17 @@ function Home() {
   useEffect(() => {
     http.get('/home/').then((response) => {
       setmovieList(response.data);
+      
     });
   },[]);
 
   const [popupOpen, setPopupOpen] = useState(false);
   
-  const openPopup = (e) => {
+  const openPopup = (val) => {
     console.log("Alanzin");
     setPopupOpen(true);
+    setFilmeEscolhido(val.id);
+    setFilmeNome(val.nome)
   };
 
   const closePopup = (e) => {
@@ -35,6 +38,8 @@ function Home() {
     setPopupOpen(false);
   };
   
+  const [filmeEscolhido, setFilmeEscolhido] = useState("");
+  const [filmeNome, setFilmeNome] = useState("");
 
   const [usuario, setusuario] = useState("");
   const [texto, settexto] = useState("");
@@ -43,17 +48,6 @@ function Home() {
   const [filme, setfilme] = useState("");
   const [pesquisa, setPesquisa] = useState('')
   
-  const handleClick = (e) => {
-    http.post('/home/',{
-      usuario: usuario,
-      texto: texto,
-      nota: nota,
-      fotoUsuario: fotoUsuario,
-      filme: filme,
-      
-    });
-  };
-
 return (
     <div>
       {/* PARTE SUPERIOR */}
@@ -79,26 +73,20 @@ return (
                   informacoes = {val.sinopse}
                   banner = {val.fotoURL}
                   nota = {val.estrelas}
-                  others = {
-                   <div>
-                      <img src ="https://upload.wikimedia.org/wikipedia/commons/f/ff/Netflix-new-icon.png"/>
-                      <img src ="https://pbs.twimg.com/profile_images/1587180153603514369/vWiLmja1_400x400.jpg"/>
-                      <img src ="https://img.utdstc.com/icon/8d0/5dc/8d05dcf1d6034e9b6dffbab81f64ca8e61a135cc2c738e641b081d4611ba3ca2:200"/>
-                      <img src ="https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png"/>
-                   </div>
-                  }
-                  onClick={openPopup}
+                  plataforma = {val.plataformas}
+                  icones = {val.icones}
+                  onClick={() => openPopup(val)}
                 />
             </div>
         )  
       })
       }
-
-        <Button text="Enviar Crítica" onClick={handleClick}/>
+        {/*passar esses botões para o PopUp*/}
+        
 
         {/* O TAL DO POPUP */}
         {popupOpen && (
-            <PopUp close={closePopup}/>
+            <PopUp close={closePopup} filmeTitle = {filmeNome} id = {filmeEscolhido}/>
         )}
 
       </div>

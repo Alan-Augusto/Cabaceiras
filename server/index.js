@@ -5,19 +5,19 @@ const app = express();
 const mysql = require("mysql");
 const util = require( "util");
 
-// const db = mysql.createPool({
-//     host: "localhost",
-//     user: "laura",
-//   password: "Agoraufmg1",
-//   database: "filmes",
-// });
-
-const db = mysql.createPool({
-   host: "localhost",
-   user: "root",
-   password: "Aln_139157!",
+ const db = mysql.createPool({
+     host: "localhost",
+     user: "laura",
+   password: "Agoraufmg1",
    database: "filmes",
-});
+ });
+
+//const db = mysql.createPool({
+//   host: "localhost",
+//   user: "root",
+//   password: "Aln_139157!",
+//   database: "filmes",
+//});
 
 app.use(cors());
 app.use(express.json())
@@ -66,17 +66,32 @@ app.post('/home/', (req, res) => {
 
 }});
 })
-app.get('/criticas/', (req, res) => {
+app.post('/criticas/', (req, res) => {
+    const id = req.body.id;
+    
     const sqlGetCriticas = "SELECT * FROM criticas WHERE filme = ?";
-    db.query(sqlGetCriticas, (err, result) =>{
+    db.query(sqlGetCriticas, id, (err, result) =>{
         res.send(result);
     });
 });
 
+app.post('/filme/', (req, res) => {
+    const id = req.body.id;
+    const sqlFilmes = "SELECT * FROM filme WHERE id = ?"
+    db.query(sqlFilmes, id, (err, result) =>{
+        res.send(result);
+    });
+})
+
 app.get('/home/', (req, res) => {
-    const sqlSelect = "SELECT * FROM filme";
+    const sqlSelect = "SELECT f.id, f.nome, f.fotoURL, f.sinopse, f.estrelas, group_concat(p.id) as plataformas, group_concat(p.iconURL) as icones" +
+    " FROM conexoes as c " +
+    " inner join filme as f on c.filme = f.id " +
+    " inner join plataformas as p on p.id = c.plataforma " +
+    " group by f.id;";
     db.query(sqlSelect, (err, result) =>{
         if (err) return res.status(500).json(err);
+        console.log(result)
         res.send(result);
     });
 });
