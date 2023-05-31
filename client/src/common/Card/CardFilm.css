@@ -5,7 +5,7 @@
     border-style: solid;
     border-color: #b3b3b387;
     border-width: 1px;
-    width: 1000px;
+    width: 50em;
     margin: 8px;
     transition: transform 0.3s;
 }
@@ -19,9 +19,13 @@
     flex-direction: column;
     margin: 8px;
 }
+.banner img {
+    width: 250px;
+    border-radius: 4px;
+    box-shadow: 0 0 8px #f8b0797a;
+}
 .p-rating{
     display: flex;
-    justify-content:space-between;
     justify-content: center;
     color: #f8b179;
     margin-top: 5px;
@@ -46,9 +50,20 @@
     color: aliceblue;
 }
 
+.others{
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 4px;
+    padding: 4px;
+    padding-left: 8px;
+    border-left: solid 1px #b3b3b387;
+}
 
-img {
-    width: 250px;
-    border-radius: 4px;
-    box-shadow: 0 0 8px #f8b0797a;
+.others img{
+    width: 30px;
+    margin: 6px;
+    box-shadow: 0 0 4px aliceblue;
 }

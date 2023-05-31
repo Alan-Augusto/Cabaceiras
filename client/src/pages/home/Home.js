@@ -67,12 +67,20 @@ return (
                   informacoes = {val.sinopse}
                   banner = {val.fotoURL}
                   nota = {val.estrelas}
+                  others = {
+                   <div>
+                      <img src ="https://upload.wikimedia.org/wikipedia/commons/f/ff/Netflix-new-icon.png"/>
+                      <img src ="https://pbs.twimg.com/profile_images/1587180153603514369/vWiLmja1_400x400.jpg"/>
+                      <img src ="https://img.utdstc.com/icon/8d0/5dc/8d05dcf1d6034e9b6dffbab81f64ca8e61a135cc2c738e641b081d4611ba3ca2:200"/>
+                      <img src ="https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png"/>
+                   </div>
+                  }
                 />
             </div>
         )  
       })
       }
-        
+        {/*  */}
 
         <Button text="Enviar Crítica" onClick={handleClick}/>
         {/* <Button variant='primary' type='submit'>Tezzz</Button> */}
