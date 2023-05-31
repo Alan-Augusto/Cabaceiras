@@ -2,11 +2,12 @@
 import { useEffect } from "react";
 import './Home.css'
 import Header from '../../common/Header/Header';
-import http from '../export'
-import Button from '../../common/Button/Button'
+import http from '../export';
+import Button from '../../common/Button/Button';
 import CardFilm from '../../common/Card/CardFilm';
 import Footer from '../../common/Footer/Footer';
 import SearchBar from '../../common/SearchBar/SearchBar';
+import PopUp from '../../common/PopUp/PopUp';
 
 
 function Home() {
@@ -22,7 +23,18 @@ function Home() {
     });
   },[]);
 
+  const [popupOpen, setPopupOpen] = useState(false);
+  
+  const openPopup = (e) => {
+    console.log("Alanzin");
+    setPopupOpen(true);
+  };
 
+  const closePopup = (e) => {
+    console.log("Alanzin");
+    setPopupOpen(false);
+  };
+  
 
   const [usuario, setusuario] = useState("");
   const [texto, settexto] = useState("");
@@ -75,15 +87,20 @@ return (
                       <img src ="https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png"/>
                    </div>
                   }
+                  onClick={openPopup}
                 />
             </div>
         )  
       })
       }
-        {/*  */}
 
         <Button text="Enviar Crítica" onClick={handleClick}/>
-        {/* <Button variant='primary' type='submit'>Tezzz</Button> */}
+
+        {/* O TAL DO POPUP */}
+        {popupOpen && (
+            <PopUp close={closePopup}/>
+        )}
+
       </div>
       
 
