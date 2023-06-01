@@ -16,5 +16,44 @@
     position: fixed;
     border-radius: 4px;
     background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  
+
+.pi-times{
+  color: #b3b3b3;
+  margin: 8px;
+  font-size: 1.2rem;
+}
+
+.topo{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.mini-form{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.input-name{
+  margin: 20px;
+  width: 400px;
+}
+
+.input-textarea{
+  margin: 20px;
+  width: 400px;
+  min-height: 200px;
+  max-height: 300px;
+}
+
+.popup-buttons{
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+  margin-right: 20px;
+}

@@ -58,29 +58,29 @@ return (
 
       {/* PARTE DO CONTEÚDO */}
       <div className='conteudo'>
-      <SearchBar type= "text" placeholder="Buscar filme..." onChange={setPesquisa} />
-      {movieReviewList.filter((val) =>{
-        if (pesquisa == ""){
-          return val;
-        } else if (val.nome.toLowerCase().includes(pesquisa.toLowerCase())){
-          return val
+        <SearchBar type= "text" placeholder="Buscar filme..." onChange={setPesquisa} />
+        {movieReviewList.filter((val) =>{
+          if (pesquisa == ""){
+            return val;
+          } else if (val.nome.toLowerCase().includes(pesquisa.toLowerCase())){
+            return val
+          }
+        }).map((val) =>{
+          return (
+              <div> 
+                  <CardFilm
+                    title={val.nome}
+                    informacoes = {val.sinopse}
+                    banner = {val.fotoURL}
+                    nota = {val.estrelas}
+                    plataforma = {val.plataformas}
+                    icones = {val.icones}
+                    onClick={() => openPopup(val)}
+                  />
+              </div>
+          )  
+        })
         }
-      }).map((val) =>{
-        return (
-            <div> 
-                <CardFilm
-                  title={val.nome}
-                  informacoes = {val.sinopse}
-                  banner = {val.fotoURL}
-                  nota = {val.estrelas}
-                  plataforma = {val.plataformas}
-                  icones = {val.icones}
-                  onClick={() => openPopup(val)}
-                />
-            </div>
-        )  
-      })
-      }
         {/*passar esses botões para o PopUp*/}
         
 
@@ -94,7 +94,10 @@ return (
 
       {/* PARTE INFERIOR */}
       <div className='rodape'>
-        <Footer/>
+        {!popupOpen && (
+            <Footer/>
+        )}
+        
       </div>
         
     </div>
