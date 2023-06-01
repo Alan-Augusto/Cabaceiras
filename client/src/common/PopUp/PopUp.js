@@ -27,6 +27,10 @@ function PopUp (props) {
         filme: id,
         
       });
+      http.post('/atualizar_critica/', {
+
+        filme:id
+      })
     };
   
     const navigate = useNavigate()

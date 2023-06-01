@@ -5,19 +5,19 @@ const app = express();
 const mysql = require("mysql");
 const util = require( "util");
 
-//  const db = mysql.createPool({
-//      host: "localhost",
-//      user: "laura",
-//    password: "Agoraufmg1",
-//    database: "filmes",
-//  });
+  const db = mysql.createPool({
+      host: "localhost",
+      user: "laura",
+    password: "Agoraufmg1",
+    database: "filmes",
+  });
 
-const db = mysql.createPool({
-  host: "localhost",
-  user: "root",
-  password: "Aln_139157!",
-  database: "filmes",
-});
+//const db = mysql.createPool({
+//  host: "localhost",
+//  user: "root",
+//  password: "Aln_139157!",
+//  database: "filmes",
+//});
 
 app.use(cors());
 app.use(express.json())
@@ -31,41 +31,33 @@ app.post('/home/', (req, res) => {
     const fotoUsuario = req.body.fotoUsuario;
     const filme = req.body.filme;
 
-    const query = util.promisify(db.query).bind(db);
+    console.log(texto)
 
-    (async () => {
-        try {
-            await query (
-                "INSERT INTO criticas (usuario, texto, nota, fotoUsuario, filme) VALUES('" +
-                    usuario + "','" +
-                    texto + "'," +
-                    nota + ",'" +
-                    fotoUsuario  + "'," +
-                    filme    + ")" 
-                
-            )
-            
-        }finally {
-            (async () => {
-                try{
-                    const result_criticas = await query ( "SELECT COUNT(*) AS total_criticas FROM criticas WHERE filme = " + filme +" ");
-                    cont_criticas = result_criticas[0].cont_criticas;
-                
-        }finally {
-            (async () => {
-                try{
-                    const result_notas = await query ( "SELECT SUM(nota) as total FROM criticas WHERE filme  = " + filme +" ");
-                    soma_nota = result_notas[0].soma_nota;
-                
-        } finally{
-            const notasReal = (result_notas / result_criticas)
-            const estrelas_total = await query ( "UPDATE filme SET estrelas = " + notasReal + " WHERE id   = " + filme +" ");              
-                        }})();
-            } 
-        })();
+    const sqlInsertCriticas = 
+    "INSERT INTO criticas (usuario, texto, nota, fotoUsuario, filme) VALUES (?,?,?,?,?);";
+    db.query(sqlInsertCriticas, [usuario, texto, nota, fotoUsuario, filme],(err, result) =>{
+        res.send(result);
+    });
 
-}});
+
+});
+
+app.post('/atualizar_critica/', (req, res) => {
+    const filme = req.body.filme;
+    var linha
+    const sqllinhas = "SELECT AVG(nota) FROM criticas WHERE filme = ? ";
+    db.query(sqllinhas) , filme, (err, result) =>{
+        linha = result[0].linha;
+    }
+
+   
+    const insere = "UPDATE filme SET estrelas = ? WHERE id  = ?";
+    db.query(insere) , [linha, filme], (err, result) =>{
+        res.send(result)
+    }
 })
+
+
 app.post('/criticas/', (req, res) => {
     const id = req.body.id;
     

@@ -41,11 +41,7 @@ function Home() {
   const [filmeEscolhido, setFilmeEscolhido] = useState("");
   const [filmeNome, setFilmeNome] = useState("");
 
-  const [usuario, setusuario] = useState("");
-  const [texto, settexto] = useState("");
-  const [nota, setnota] = useState("");
-  const [fotoUsuario, setfotoUsuario] = useState("");
-  const [filme, setfilme] = useState("");
+  
   const [pesquisa, setPesquisa] = useState('')
   
 return (
