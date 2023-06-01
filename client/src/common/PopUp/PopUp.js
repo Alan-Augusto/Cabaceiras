@@ -15,6 +15,13 @@ function PopUp (props) {
     const [nota, setnota] = useState(1);
     const [filme, setfilme] = useState("");
 
+    const clearFields = () => {
+      setusuario("");
+      settexto("");
+      setnota(1);
+      setfilme("");
+    };
+
     const handleClick = (e) => {
       console.log(usuario);
       console.log(texto);
@@ -28,9 +35,10 @@ function PopUp (props) {
         
       });
       http.post('/atualizar_critica/', {
-
         filme:id
       })
+      
+      clearFields();
     };
   
     const navigate = useNavigate()
@@ -60,12 +68,14 @@ function PopUp (props) {
               className='input-name'
               type='text'
               placeholder='Qual seu nome?'
+              value={usuario}
               onChange={(e)=>setusuario(e.target.value)}
             />
 
             <textarea
               className='input-textarea'
               placeholder='Nos conte o que achou deste filme.'
+              value={texto}
               onChange={(e)=>settexto(e.target.value)}
             />
           </div>

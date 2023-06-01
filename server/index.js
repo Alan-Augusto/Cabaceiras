@@ -5,19 +5,19 @@ const app = express();
 const mysql = require("mysql");
 const util = require( "util");
 
-  const db = mysql.createPool({
-      host: "localhost",
-      user: "laura",
-    password: "Agoraufmg1",
-    database: "filmes",
-  });
+//   const db = mysql.createPool({
+//       host: "localhost",
+//       user: "laura",
+//     password: "Agoraufmg1",
+//     database: "filmes",
+//   });
 
-//const db = mysql.createPool({
-//  host: "localhost",
-//  user: "root",
-//  password: "Aln_139157!",
-//  database: "filmes",
-//});
+const db = mysql.createPool({
+ host: "localhost",
+ user: "root",
+ password: "Aln_139157!",
+ database: "filmes",
+});
 
 app.use(cors());
 app.use(express.json())
@@ -44,18 +44,30 @@ app.post('/home/', (req, res) => {
 
 app.post('/atualizar_critica/', (req, res) => {
     const filme = req.body.filme;
-    var linha
-    const sqllinhas = "SELECT AVG(nota) FROM criticas WHERE filme = ? ";
-    db.query(sqllinhas) , filme, (err, result) =>{
-        linha = result[0].linha;
-    }
+    var linha;
+    const sqllinhas = "SELECT AVG(nota) as media FROM criticas WHERE filme = ?";
+    db.query(sqllinhas, [filme], (err, result) => {
+        if (err) {
+            // Tratar erros aqui
+            console.error(err);
+            res.send('Erro ao calcular a média das críticas');
+        } else {
+            linha = result[0].media;
 
-   
-    const insere = "UPDATE filme SET estrelas = ? WHERE id  = ?";
-    db.query(insere) , [linha, filme], (err, result) =>{
-        res.send(result)
-    }
-})
+            const insere = "UPDATE filme SET estrelas = ? WHERE id = ?";
+            db.query(insere, [linha, filme], (err, result) => {
+                if (err) {
+                    // Tratar erros aqui
+                    console.error(err);
+                    res.send('Erro ao atualizar a nota do filme');
+                } else {
+                    res.send(result);
+                }
+            });
+        }
+    });
+});
+
 
 
 app.post('/criticas/', (req, res) => {
