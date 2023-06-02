@@ -13,9 +13,10 @@ class Header extends React.Component {
           </div>
 
           <div className='menuBar'>
-            <HeaderItem name="Início"/>
-            <HeaderItem name="Hall da Fama"/>
-            <HeaderItem name="Perfil"/>
+            <HeaderItem name="Início" page=""/>
+            <HeaderItem name="Hall da Fama" page=""/>
+            <HeaderItem name="Perfil" page=""/>
+            <HeaderItem name="Admin" page="admin"/>
           </div>
         </div>
       );

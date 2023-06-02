@@ -17,15 +17,14 @@ body {
 }
 
 .form h2{
-  color: rgb(187, 187, 187);
+  color: aliceblue;
 }
-
 .titles {
-    font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: rgb(187, 187, 187);
-    margin-bottom: -7px;
+    color: aliceblue;
+    font-size: 20px;
+    font-weight: 350;
 }
-
+ 
 .multiSelect {
   width: 500px;
   display: flex;

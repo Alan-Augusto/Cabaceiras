@@ -146,8 +146,13 @@ return (
           </div>
                 
         </div>
-        <Button text="Enviar Filme" onClick={handleClick}></Button>
-        {/* <Button variant='primary' type='submit'>Tezzz</Button> */}
+        <Button 
+          text="Enviar Filme" 
+          onClick={handleClick}
+          icon={<i className='pi pi-cloud-upload' style={{ fontSize: '1rem' }}></i>}
+          />
+        
+        <Footer/>
       </div>
     </div>
     

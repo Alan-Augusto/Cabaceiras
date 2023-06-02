@@ -10,9 +10,9 @@ class Button extends React.Component {
       <button className="button"
       onClick={(e)=>onClick()}>
       {text}
-      <div className='iconebotao'>
+      {icon && <div className='iconebotao'>
         {icon}
-      </div>
+      </div>}
       </button>
     );
   }
