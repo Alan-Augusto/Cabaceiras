@@ -11,8 +11,12 @@
     border: none;
     color: #313250;
     font-size: 15px;
-    font-weight: regular;
+    font-weight: 350;
     background-color: #f8b179;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
   }
   
   .button:hover {
@@ -21,4 +25,11 @@
   .button:active {
     transform: translateY(1px);
   }
+
+.iconebotao{
+    width: 20px;
+    height: 20px;
+    padding: 0px;
+    margin-left: 8px;
+}
   

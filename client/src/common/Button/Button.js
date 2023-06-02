@@ -4,12 +4,15 @@ import './Button.css';
 
 class Button extends React.Component {
   render() {
-    const { text, onClick} = this.props;
+    const { text, icon, onClick} = this.props;
 
     return (
       <button className="button"
       onClick={(e)=>onClick()}>
       {text}
+      <div className='iconebotao'>
+        {icon}
+      </div>
       </button>
     );
   }

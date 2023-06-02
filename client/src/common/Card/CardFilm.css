@@ -41,13 +41,13 @@
     flex-direction: column;
     text-align: left;
     color: aliceblue;
-    font-weight: 100;
+    font-weight: 200;
     font-size: 15px;
     margin: 8px;
 }
 .info h3 {
     font-size: 25px;
-    font-weight: 200;
+    font-weight: 350;
     color: aliceblue;
 }
 
