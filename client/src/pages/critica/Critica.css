@@ -1,0 +1,33 @@
+.sup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #b3b3b3;
+}
+
+.textinho{
+    font-size: 16px;
+    font-weight: 200;
+}
+
+.filmname{
+    color: aliceblue;
+    font-size: 50px;
+    font-weight: 300;
+}
+
+.informacoes{
+    color: #b3b3b3;
+}
+.mininfo{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+    margin: -12px;
+}
+
+.mininfo label{
+    margin-right: 10px;
+    margin-top: 0px;
+}

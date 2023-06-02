@@ -1,9 +1,11 @@
+import "./Critica.css"
 import { useParams } from "react-router-dom";
 import React, { useState } from 'react';
 import { useEffect } from "react";
 import Header from '../../common/Header/Header'
 import http from '../export'
 import CardFilm from "../../common/Card/CardFilm";
+import { Rating } from "primereact/rating";
 
 
 function Critica()
@@ -12,9 +14,11 @@ function Critica()
     document.documentElement.classList.add("full-height");
   }, []);
 
-  const params = useParams();
-  const id = params.id;
-   
+    const params = useParams();
+    const id = params.id;
+
+    const[nota, setNota] = useState(0)
+
     const[criticasList, setCriticasList] = useState([])
     const[filme, setFilme] = useState("")
       useEffect(() => {
@@ -33,20 +37,47 @@ function Critica()
     return (
         // entender como funciona o ID
       <div className="Críticas">
-      <Header/>
-      <h1>Avaliações {filme.nome}</h1>
-  
-      {criticasList.map((criticas) =>{
-        return(
-        <CardFilm
-                  title={criticas.usuario}
-                  informacoes = {criticas.texto}
-                  banner = {criticas.fotoUsuario}
-                  nota = {criticas.nota}
-        />)
-      })}
+        <Header/>
+        <div className="sup">
+          <label className="textinho">Veja o que as pessoas estão dizendo sobre</label>
+          <label className="filmname">{filme.nome}</label>
+        </div>
+        <div className="informacoes">
+          <hr/>
+          <div className="mininfo">
+            <label>Filtre as avaliações:</label>
+            <Rating value={nota} onChange={(e)=>setNota(e.value)}/>
+          </div>
+          <hr/>
+        </div>
+        <div className="conteudo">
 
-      
+        
+
+        {criticasList.filter((critica) => {
+          if (nota === null || nota === 0) {
+            return true; // Mostra todas as críticas se nenhuma nota estiver selecionada
+          } else {
+            return critica.nota === nota; // Mostra apenas as críticas com a nota selecionada
+          }
+        }).map((critica) => {
+          
+          return (
+            <div>
+              <CardFilm
+                title={critica.usuario}
+                informacoes={critica.texto}
+                banner={critica.fotoUsuario}
+                nota={critica.nota}
+                width_image={100}
+                onClick={() => console.log(critica.usuario + ' - ' + critica.nota)}
+              />
+            </div>
+          );
+        })}
+        </div>
+
+        
   </div>
     )  
 }

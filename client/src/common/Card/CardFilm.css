@@ -17,12 +17,12 @@
 .banner{
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin: 8px;
 }
 .banner img {
     width: 250px;
     border-radius: 4px;
-    box-shadow: 0 0 8px #f8b0797a;
 }
 .p-rating{
     display: flex;
@@ -36,6 +36,7 @@
 }
 
 .info{
+    width: 70%;
     display: flex;
     flex-direction: column;
     text-align: left;
